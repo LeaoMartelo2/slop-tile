@@ -74,7 +74,7 @@ int main(void) {
 
         DrawCircleV(plr_pos, 10, GREEN);
 
-        DrawText(TextFormat("%.2f", test),
+        DrawText(TextFormat("%f", test),
                  plr_pos.x, plr_pos.y + 15, 20, WHITE);
 
         DrawText(TextFormat("%f", anim_time), 5, 5, 20, WHITE);
