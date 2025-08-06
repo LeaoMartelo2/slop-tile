@@ -1,9 +1,0 @@
-#include "../raylib/raylib.h"
-#include "../raylib/raymath.h"
-#include <cmath>
-#include <vector>
-
-int main() {
-
-    return 0;
-}
