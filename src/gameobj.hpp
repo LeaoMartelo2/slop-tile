@@ -2,31 +2,23 @@
 #define GAMEOBJ_H
 
 #include "../raylib/raylib.h"
-#include "../raylib/raymath.h"
-#include "tilemap.hpp"
+#include "collider.hpp"
 
 class GameObject {
+
+  protected:
+    Vector2 pos;
+    Collider *collider = nullptr;
+
   public:
-    virtual void update(float delta_time) = 0;
+    virtual ~GameObject();
+    virtual void update(float dt) = 0;
     virtual void draw() = 0;
-    virtual Vector2 get_position() const = 0;
-};
+    virtual Vector2 get_position() const;
+    virtual Vector2 get_center() const;
 
-
-class Player : public GameObject {
-
-    private:
-	Vector2 pos;
-	float speed;
-	float size;
-	Tilemap * tilemap;
-
-    public:
-	Player(Tilemap *tm, Vector2 start_pos, float s, float sz);
-	void update(float delta_time) override;
-	void draw() override;
-	Vector2 get_position() const override;
-
+    Collider *get_collider() const;
+    void set_collider(float width, float height);
 };
 
 #endif // GAMEOBJ_H

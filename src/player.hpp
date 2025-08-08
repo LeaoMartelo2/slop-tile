@@ -1,15 +1,24 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "../raylib/raylib.h"
 #include "gameobj.hpp"
+#include "tilemap.hpp"
 
 class Player : public GameObject {
-    
-    private:
-	Vector2 pos;
-	float speed;
-	float size;
 
+  private:
+
+    float speed;
+    TileMap *tilemap;
+    Camera2D *camera;
+
+  public:
+    
+    Player(TileMap *tm, Vector2 start_pos, float s, float sz, Camera2D *cm);
+
+    void update(float dt) override;
+    void draw() override;
 
 };
 
