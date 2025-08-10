@@ -2,7 +2,6 @@
 #define TILEMAP_H
 
 #include "../raylib/raylib.h"
-#include <cmath>
 #include <vector>
 
 enum TileType {
@@ -21,13 +20,14 @@ class TileMap {
     TileMap(int w, int h, float ts);
     TileType get_tile(int x, int y) const;
     void set_tile(int x, int y, TileType type);
+    void surround_map(TileType type);
     int get_width() const;
     int get_height() const;
     float get_tile_size() const;
 
     std::vector<Rectangle> get_nearby_walls(float x, float y, float w, float h) const;
 
-    void draw()const;
+    void draw() const;
 };
 
 #endif // TILEMAP_H

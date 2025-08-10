@@ -4,8 +4,8 @@
 #include "collider.hpp"
 
 Player::Player(TileMap *tm, Vector2 start_pos, float s, Vector2 sz, Camera2D *cmr) : speed(s),
-                                                                                   tilemap(tm),
-                                                                                   camera(cmr) {
+                                                                                     tilemap(tm),
+                                                                                     camera(cmr) {
     pos = start_pos;
     set_collider(sz.x, sz.y);
 }
@@ -31,7 +31,6 @@ void Player::update(float dt) {
 
     auto walls = tilemap->get_nearby_walls(pos.x, pos.y, collider->rect.width, collider->rect.height);
 
-
     for (const auto &wall : walls) {
 
         DrawCircle(wall.x, wall.y, 8, BLUE);
@@ -53,6 +52,6 @@ void Player::draw() {
 
     if (!collider) return;
 
- //   DrawRectangleRec(collider->rect, RED);
+    //   DrawRectangleRec(collider->rect, RED);
     DrawRectangleLinesEx(collider->rect, 1, RED);
 }

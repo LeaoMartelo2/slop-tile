@@ -1,4 +1,5 @@
 #include "tilemap.hpp"
+#include <cmath>
 
 TileMap::TileMap(int w, int h, float ts) : width(w), height(h), tile_size(ts) {
     tiles.resize(h, std::vector<TileType>(w, EMPTY));
@@ -19,6 +20,20 @@ void TileMap::set_tile(int x, int y, TileType type) {
     if (y >= 0 && y < height && x >= 0 && x < width) {
 
         tiles[y][x] = type;
+    }
+}
+
+void TileMap::surround_map(TileType type) {
+
+    for (int x = 0; x < width; ++x) {
+
+        set_tile(x, 0, type);
+        set_tile(x, width - 1, type);
+    }
+
+    for (int y = 0; y < height; ++y) {
+        set_tile(0, y, type);
+        set_tile(height - 1, y, type);
     }
 }
 
