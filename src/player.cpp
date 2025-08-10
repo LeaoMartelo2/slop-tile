@@ -46,9 +46,11 @@ void Player::update(float dt) {
     pos = new_pos;
     collider->rect.x = pos.x;
     collider->rect.y = pos.y;
+
+    camera->target = Vector2Lerp(camera->target, get_center(), 0.3f);
 }
 
-void Player::draw() {
+void Player::draw() const {
 
     if (!collider) return;
 

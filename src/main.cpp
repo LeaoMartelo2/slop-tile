@@ -1,5 +1,4 @@
 #include "../raylib/raylib.h"
-#include "../raylib/raymath.h"
 #include "player.hpp"
 #include "tilemap.hpp"
 
@@ -26,7 +25,6 @@ int main() {
 
     Player player(&tilemap, start_pos, player_speed, {32, 64}, &camera);
 
-    // borders around the map
 
     tilemap.surround_map(WALL);
 
@@ -37,8 +35,6 @@ int main() {
     while (!WindowShouldClose()) {
         float dt = GetFrameTime();
 
-        // player.update(dt);
-        camera.target = Vector2Lerp(camera.target, player.get_center(), camera_lerp);
 
         BeginDrawing();
         ClearBackground(BLACK);

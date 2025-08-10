@@ -13,7 +13,7 @@ class GameObject {
   public:
     virtual ~GameObject();
     virtual void update(float dt) = 0;
-    virtual void draw() = 0;
+    virtual void draw() const = 0;
     virtual Vector2 get_position() const;
     virtual Vector2 get_center() const;
 

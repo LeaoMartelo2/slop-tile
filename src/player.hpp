@@ -18,7 +18,7 @@ class Player : public GameObject {
     Player(TileMap *tm, Vector2 start_pos, float s, Vector2 sz, Camera2D *cm);
 
     void update(float dt) override;
-    void draw() override;
+    void draw() const override;
 
 };
 
