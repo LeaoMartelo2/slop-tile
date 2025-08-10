@@ -24,9 +24,9 @@ int main() {
     TileMap tilemap(25, 19, tile_size);
     Vector2 start_pos = {tile_size * 1.5f, tile_size * 1.5f};
     float player_speed = 500.0f;
-    float player_size = tile_size;
+    float player_size = 64;
 
-    Player player(&tilemap, start_pos, player_speed, player_size, &camera);
+    Player player(&tilemap, start_pos, player_speed, {32, 64}, &camera);
 
     
     // borders around the map
