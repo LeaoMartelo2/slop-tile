@@ -15,6 +15,9 @@ void Player::update(float dt) {
     // if it has no collider just short circuit
     if (!collider) return;
 
+    DrawText(TextFormat("%f, %f", get_position().x, get_position().y),
+             get_position().x + 30, get_position().y + 20, 20, WHITE);
+
     Vector2 velocity = {0, 0};
 
     if (IsKeyDown(KEY_D)) velocity.x += 1;

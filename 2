@@ -23,10 +23,13 @@ int main() {
     Vector2 start_pos = {tile_size * 1.5f, tile_size * 1.5f};
     float player_speed = 500.0f;
 
-    Player player(scene_manager.scenes[0]->get_tilemap(), start_pos, player_speed, {32, 64}, main_scene->get_camera());
-    scene_manager.scenes[0]->add_gameobj(&player);
-    scene_manager.scenes[0]->scene_map.surround_map(WALL);
+    Player player(&tilemap, start_pos, player_speed, {32, 64}, main_scene->get_camera());
 
+    tilemap.surround_map(WALL);
+
+    tilemap.set_tile(5, 5, WALL);
+    tilemap.set_tile(5, 6, WALL);
+    tilemap.set_tile(6, 5, WALL);
 
     while (!WindowShouldClose()) {
 
@@ -35,6 +38,12 @@ int main() {
         scene_manager.scenes[0]->draw_scene();
         scene_manager.scenes[0]->update_scene();
 
+        // DrawText(TextFormat("%f, %f", player.get_position().x, player.get_position().y),
+        //        player.get_position().x + 30, player.get_position().y + 20, 20, WHITE);
+
+        EndMode2D();
+
+        EndDrawing();
     }
 
     CloseWindow();
