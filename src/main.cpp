@@ -19,7 +19,7 @@ int main() {
     const float camera_lerp = 0.3f;
 
     float tile_size = 32.0f;
-    TileMap tilemap(20, 20, tile_size);
+    TileMap tilemap(30, 21, tile_size);
     Vector2 start_pos = {tile_size * 1.5f, tile_size * 1.5f};
     float player_speed = 500.0f;
 

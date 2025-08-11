@@ -9,7 +9,7 @@ class Scene {
 
   public:
     TileMap scene_map;
-    std::vector<GameObject> scene_gameobjs;
+    std::vector<GameObject *> scene_gameobjs;
 
     Scene(TileMap tm);
 

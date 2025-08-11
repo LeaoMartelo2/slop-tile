@@ -25,15 +25,15 @@ void TileMap::set_tile(int x, int y, TileType type) {
 
 void TileMap::surround_map(TileType type) {
 
-    for (int x = 0; x < width; ++x) {
+    for (int x = 0; x < get_width(); ++x) {
 
         set_tile(x, 0, type);
-        set_tile(x, width - 1, type);
+        set_tile(x, get_height() - 1, type);
     }
 
-    for (int y = 0; y < height; ++y) {
+    for (int y = 0; y < get_height(); ++y) {
         set_tile(0, y, type);
-        set_tile(height - 1, y, type);
+        set_tile(get_width() - 1, y, type);
     }
 }
 
